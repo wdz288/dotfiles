@@ -40,24 +40,17 @@ alwaysApply: true
 - NEVER install packages globally — always use project-level package management
 - NEVER proceed on ambiguous tasks — stop and ask for clarification
 - NEVER guess at requirements — explicit confirmation required
-- NEVER create or maintain `.cursorrules` files — use `.agent/rules.md` for workspace rules
 - NEVER delete files without permission — always ask first
+- NEVER permanently delete files — move to recycle bin, Ding will empty it
 
 ## Preferences
 - Documentation: Mermaid diagrams for all process flows, always keep README updated
 - Naming: Descriptive over terse — `getUserAuthToken()` not `getToken()`
 - Errors: Handle explicitly, surface clearly, never swallow silently
 - Validation: When processing data, always provide verification (sample outputs, counts, before/after)
-- Workspace rules: Store workspace-specific rules ONLY in `.agent/rules.md`
 
 ## Commit Rules
 - **Always confirm before committing** — Show what will be committed, get user approval first
 - **Never commit without asking** — Even for small changes
 - **Show commit message** — User reviews before `git commit`
 - **Show files to be staged** — User confirms which files to include
-
-## Query Rules
-- **Allow flexible natural language queries** — LLMs can understand "what is the highest total revenue brand"
-- **Don't over-constrain query syntax** — Support both structured and free-form queries
-- **Show available columns** — User knows what they can query
-- **Mask column names in query** — Replace actual names with placeholders before sending to LLM
