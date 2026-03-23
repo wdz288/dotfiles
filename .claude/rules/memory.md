@@ -20,27 +20,17 @@ _Added: YYYY-MM-DDTHH:MM:SSZ_
 - Keep recent and critical entries in active sections
 
 ## Lessons Learned
-
-### Prometheus agents blocked by read-only directive (2026-02-17)
-Never delegate file-writing tasks to sub-agents when the parent prompt carries a read-only directive. Sub-agents inherit the directive and block. Workaround: use PowerShell/bash via Bash tool for file writes, or strip the directive from sub-agent prompts.
-_Added: 2026-02-17T15:00:00Z_
-
 ### Kimi K2.5 excluded from agent recommendations (2026-03-20)
 Kimi K2.5 has 8+ open GitHub issues for tool-calling failures in OpenCode: planning mode produces 0 tool calls, tools rendered as plain text instead of structured calls, HTTP 400 errors with thinking mode. Do NOT assign Kimi K2.5 to any agent.
 _Added: 2026-03-20T13:55:00Z_
 
 ## Technical Decisions
-
 ### OpenCode free models ranked by capability (2026-03-21 updated)
 After benchmark and community research:
 **MiMo V2 Pro Free**: Best for reasoning (1M context, #8 globally, agent-optimized). Does NOT support thinking/reasoning params — routes through 'opencode' provider which is not in THINKING_CONFIGS.
 **MiniMax M2.5 Free**: Highest SWE-bench (80.2%) but has tool-calling bugs
 **Big Pickle (GLM-4.6)**: Solid for planning, context degrades at 50-70K tokens
 **Kimi K2.5**: EXCLUDED — planning mode broken, tool calls as plain text
-
-### oh-my-opencode rules auto-loading (2026-02-17)
-Rules in ~/.claude/rules/ with alwaysApply: true are loaded ONCE per session, triggered by first tool execution (read/write/edit). Not re-evaluated on every prompt. Persist in conversation history after first injection.
-_Added: 2026-02-17_
 
 ### Master Agent Docs Suite (2026-02-17)
 Created 9-file OpenClaw-inspired documentation suite:
